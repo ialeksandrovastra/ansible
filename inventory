@@ -1,2 +1,2 @@
 [web]
-orel ansible_host=192.168.1.46
+orel ansible_host=10.77.110.116

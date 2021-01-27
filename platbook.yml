@@ -1,11 +1,9 @@
 ---
-#- name: NGINX | Install and configure NGINX
-#  become: true
-#  vars:
-#    nginx_listen_port: 8080
+- hosts: lin
 
-#  tasks:
-#    - name: NGINX | Install EPEL Repo package from standart repo
+  tasks:
+    - name: apache2 | Install
+      apt: pkg=apache2 state=installed update_cache=true
 #      yum:
 #        name: epel-release
 #        state: present
