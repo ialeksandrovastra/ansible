@@ -1,9 +1,11 @@
 ---
 - hosts: lin
+  become: yes
 
   tasks:
     - name: apache2 | Install
-      apt: pkg=apache2 state=installed update_cache=true
+      apt: name=apache2 state=present update_cache=true 
+#      apt: pkg=apache2 state=installed update_cache=true
 #      yum:
 #        name: epel-release
 #        state: present
@@ -21,23 +23,23 @@
 #        - nginx-package
 #        - packages
 
-#    - name: NGINX | Create NGINX config file from template
-#      template:
-#        src: templates/nginx.conf.j2
-#        dest: /etc/nginx/nginx.conf
-#      notify:
-#        - reload nginx
-#      tags:
-#        - nginx-configuration
+    - name: NGINX | Create NGINX config file from template
+      template:
+        src: templates/nginx.conf.j2
+        dest: /etc/nginx/nginx.conf
+      notify:
+        - reload apache2
+      tags:
+        - apach2-configuration
 
-#  handlers:
-#    - name: restart nginx
-#      systemd:
-#        name: nginx
-#        state: restarted
-#        enabled: yes
+  handlers:
+    - name: restart apache2
+      systemd:
+        name: apache2
+        state: restarted
+        enabled: yes
     
-#    - name: reload nginx
-#      systemd:
-#        name: nginx
-#        state: reloaded
+    - name: reload apache2
+      systemd:
+        name: apache2
+        state: reloaded
