@@ -17,3 +17,5 @@ ansible -m apt -a 'name=xrdp' oreld -b
 become = root
 become_user = root
 become_method = sudo
+
+синхроним с pycharm
