@@ -1,0 +1,3 @@
+[lin]
+orel        ansible_ssh_host=10.77.110.116  ansible_ssh_user=u
+oreld        ansible_ssh_host=192.168.1.46  ansible_ssh_user=u
