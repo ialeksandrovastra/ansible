@@ -1,0 +1,7 @@
+---
+- hosts: lin
+  become: yes
+  tasks:
+    - name: installs apache2
+      apt: pkg=apache2 state=latest update_cache=true
+    

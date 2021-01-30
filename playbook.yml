@@ -5,7 +5,6 @@
   tasks:
     - name: apache2 | Install
       apt: name=apache2 state=present update_cache=true 
-#      apt: pkg=apache2 state=installed update_cache=true
 #      yum:
 #        name: epel-release
 #        state: present
