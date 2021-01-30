@@ -1,0 +1,8 @@
+---
+- hosts: lin
+  become: yes
+
+  tasks:
+    - name: apache2 | Remove
+      apt: name=apache2 autoremove=yes update_cache=true
+#      apt: name=apache2 state=present update_cache=true
