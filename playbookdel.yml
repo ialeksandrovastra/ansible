@@ -2,8 +2,12 @@
 - hosts: lin
   become: yes
 
+   handlers:
+    - name: stop apache2
+      systemd:
+        name: apache2
+        state: stop
+
   tasks:
     - name: apache2 | Remove
-      apt: pkg=apache2 autoremove=yes update_cache=true 
-#      apt: name=apache2 autoremove=yes update_cache=true
-#      apt: name=apache2 state=present update_cache=true
+      apt: pkg=apache2 purge=yes update_cache=true
