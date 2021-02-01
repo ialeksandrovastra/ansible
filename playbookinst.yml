@@ -4,4 +4,20 @@
   tasks:
     - name: installs apache2
       apt: pkg=apache2 state=latest update_cache=true
-    
+
+    - name: copy conf
+      template:
+        src: templates/000-default.conf
+        dest: /etc/apache2/sites-available/000-default.conf
+
+  handlers:
+    - name: restart apache2
+      systemd:
+        name: apache2
+        state: restarted
+        enable: yes
+
+    - name: reload apache2
+      systemd:
+        name: apache2
+        state: reloaded
