@@ -3,11 +3,5 @@
   become: yes
 
   tasks:
-    - name: apache2 | Remove
-      apt: pkg=apache2 purge=yes update_cache=true
-
-  handlers:
-    - name: stop apache2
-      systemd:
-        name: apache2
-        state: stop
+    - name: remove apache2
+      apt: name=apache2 purge=yes autoremove=yes state=absent
