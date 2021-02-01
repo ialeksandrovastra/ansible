@@ -31,7 +31,7 @@
 #      tags:
 #        - apach2-configuration
 
-#  handlers:
+# handlers:
 #    - name: restart apache2
 #      systemd:
 #        name: apache2

@@ -6,7 +6,7 @@
     - name: apache2 | Remove
       apt: pkg=apache2 purge=yes update_cache=true
 
-   handlers:
+  handlers:
     - name: stop apache2
       systemd:
         name: apache2
